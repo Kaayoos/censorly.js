@@ -1,6 +1,6 @@
 {
   "name": "censorly",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Powerful AI-powered text moderation API. It analyzes text for certain topics, and flags them if they contain any.",
   "main": "lib/index.js",
   "directories": {
