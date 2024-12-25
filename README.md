@@ -14,7 +14,11 @@ npm install censorly
 
 First, import the `Censorly` SDK and create an instance with your API token.
 
-### Example
+## Requirement: API Token
+To use this SDK, you must sign up for an account on [Censorly](https://censorly.dev/) and obtain an API token in [Dashboard](https://censorly.dev/dashboard).
+
+
+### Example Using Censorly Class
 
 ```javascript
 import Censorly from 'censorly';
@@ -34,6 +38,20 @@ async function analyzeText() {
 analyzeText();
 ```
 
+### Example Using Standalone Function
+```Javascript
+const { analyzeMessage } = require('censorly');
+
+analyzeMessage({ apiToken: 'your_api_token', text: "Text to analyze" }) // Must be a valid Object
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
+
+```
+
 ## Methods
 
 ### `analyzeMessage(text: string): Promise<object>`
@@ -44,26 +62,17 @@ Analyzes a given text for flagged topics.
 - `text` (string): The text to be analyzed.
 
 #### Returns:
-A `Promise` resolving to the analysis result.
+A `Promise` resolving to the analysis result(JSON)
 
 ### Example Response
 
 ```json
 {
   "flagged": boolean,    // Whether the content was flagged as inappropriate
-  "reason": string,      // If flagged, explains why the content was flagged
   "topics": string[],    // Array of main topics identified in the text
   "confidence": number,  // Number from 0 to 1.0 indicating AI's certainty
   "language": string     // Two-letter language code (e.g., "en", "es") or "Unknown"
 }
-```
-
-## Testing
-
-Run tests with the following command:
-
-```bash
-npm test
 ```
 
 ## License
