@@ -40,9 +40,9 @@ analyzeText();
 
 ### Example Using Standalone Function
 ```Javascript
-const { analyzeMessage } = require('censorly');
+import Censorly from 'censorly';
 
-analyzeMessage({ apiToken: 'your_api_token', text: "Text to analyze" }) // Must be a valid Object
+Censorly.analyzeMessage({ apiToken: 'your_api_token', text: "Text to analyze" }) // Must be a valid Object
   .then((result) => {
     console.log(result);
   })
@@ -51,6 +51,17 @@ analyzeMessage({ apiToken: 'your_api_token', text: "Text to analyze" }) // Must 
   });
 
 ```
+
+
+
+### Using CommonJS 
+If your project uses CommonJS instead of ES Modules, you can use the following syntax to import the package:
+
+```javascript
+const { Censorly, analyzeMessage } = require('censorly');
+```
+
+The rest of the usage remains the same.
 
 ## Methods
 
