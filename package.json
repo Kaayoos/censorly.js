@@ -15,6 +15,7 @@
     "ai",
     "topics_analyzer",
     "text_analyzer",
+    "censor",
     "text"
   ],
   "author": "Kaayoos",
